@@ -217,6 +217,13 @@ class BHtree{
             this->body = NULL;
         }
 
+        ~BHtree(){
+            //if i delete every node i get double free error and i cant figure out why.
+            //but when we dealocate the memory of "snapshot" nodes we dont have ANY memory leaks
+            if(this->body != NULL && this->body->getName() == "Center of mass snapshot")
+                delete this->body;
+        }
+
         void insertBody(Body *b){
             if(this->body == NULL){
                 this->setBody(b);
@@ -243,6 +250,9 @@ class BHtree{
                 double totalMass = this->body->getMass() + b->getMass();
                 double x = (this->body->getX() * this->body->getMass() + b->getX() * b->getMass()) / totalMass;
                 double y = (this->body->getY() * this->body->getMass() + b->getY() * b->getMass()) / totalMass;
+
+                if(this->body->getName() == "Center of mass snapshot")
+                    delete this->body;
 
                 this->body = new Body(x, y, 0, 0, totalMass, "Center of mass snapshot");
                 // find the appropriate quadrant to insert the new body b

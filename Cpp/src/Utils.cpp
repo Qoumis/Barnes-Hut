@@ -58,11 +58,6 @@ void freeTree(BHtree *node){
     freeTree(node->getLT());
     freeTree(node->getLB());
     freeTree(node->getRB());
-
-    /*if(node->isLeaf() && node->getBody() != NULL){
-        delete node->getBody();
-        node->setBody(NULL); 
-    }*/
     
     delete node;
 }

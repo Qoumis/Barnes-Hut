@@ -10,12 +10,12 @@ CPP_NAME = BarnesHut
 CPP_SRC = Cpp/src
 JAVA_SRC = Java/src
 
-all: cpp java
+all: _cpp _java
 
-cpp: 
+_cpp: 
 	$(CC) $(CPP_SRC)/*.cpp $(CFLAGS) $(CPP_NAME)
 
-java:
+_java:
 	javac -d . $(JAVA_SRC)/*.java
 
 clean: cleanCPP cleanJava
