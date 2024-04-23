@@ -13,7 +13,7 @@ def parse_times(path):
     
 
 runtimes = parse_times('exec_times.txt')
-serial_avg = 7.306
+serial_avg = 1923.227
 
 avg = statistics.mean(runtimes)
 std_dev = statistics.stdev(runtimes)

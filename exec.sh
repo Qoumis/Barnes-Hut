@@ -1,8 +1,8 @@
 #!/bin/bash
 
-input_file="inputs/input2.txt"
-iterations="10000"
-num_threads="1"
+input_file="inputs/input5.txt"
+iterations="100000"
+num_threads="4"
 output_file="test.txt"
 exec_times_file="exec_times.txt"
 
